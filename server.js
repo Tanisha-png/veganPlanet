@@ -44,15 +44,16 @@ app.use(require('./middleware/add-user-to-locals-and-req'));
 
 // GET /  (home page functionality)
 app.get('/', (req, res) => {
-  res.render('home.ejs', { title: 'Home Page' });
+  res.render('home.ejs', { title: 'Vegan 🌎 Planet' });
 });
+
+// GET /
 
 // '/auth' is the "starts with" path that the request must match
 // The "starts with" path is pre-pended to the paths
 // defined in the router module
 app.use('/auth', require('./controllers/auth'));
 
-app.use('/unicorns', require('./controllers/unicorns'));
 
 // Any requests that get this far must have a signed in 
 // user thanks to ensureSignedIn middleware
@@ -61,6 +62,7 @@ app.use(require('./middleware/ensure-signed-in'));
 // ALL routes protected by the ensureSignedIn middleware
 
 
+app.use('/foods', require('./controllers/foods'));
 
 
 

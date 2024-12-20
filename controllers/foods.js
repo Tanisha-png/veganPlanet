@@ -1,19 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+const foods = [];
+
 // Middleware to protect selected routes
 const ensureSignedIn = require('../middleware/ensure-signed-in');
 
-// All routes start with '/unicorns'
+// All routes start with '/foods'
 
-// GET /unicorns (index functionality) UN-PROTECTED - all users can access
+// GET /foods (index functionality) 
 router.get('/', (req, res) => {
-  res.send('Rejoice - the unicorns are here!');
+  res.send('Hooray - the foods are here!');
 });
 
-// GET /unicorns/new (new functionality) PROTECTED - only signed in users can access
+// GET /foods/new (new functionality) 
 router.get('/new', ensureSignedIn, (req, res) => {
-  res.send('Add a unicorn!');
+  res.send('Add a food!');
 });
 
 
