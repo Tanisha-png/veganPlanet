@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const foods = [];
+const foods = ['vegan cheese', 'tofu'];
 
 // Middleware to protect selected routes
 const ensureSignedIn = require('../middleware/ensure-signed-in');
