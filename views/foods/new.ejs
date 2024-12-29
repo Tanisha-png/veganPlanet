@@ -1,0 +1,9 @@
+<%- include('../partials/header.ejs') %>
+
+    <form action="/foods" method="POST">
+        <label for="vegan-alternative">Vegan-Alternative:</label>
+        <input type="text" name="veganAlternative" id="vegan-alternative" />
+        <button type="submit">Find Vegan-Alternative</button>
+    </form>
+
+    <%- include('../partials/footer.ejs') %>
