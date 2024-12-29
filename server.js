@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const session = require('express-session');
+const authController = require('./controllers/auth.js');
+const foodsController = require('./controllers/foods.js');
 
 const app = express();
 
@@ -62,7 +64,14 @@ app.use(require('./middleware/ensure-signed-in'));
 // ALL routes protected by the ensureSignedIn middleware
 
 
-app.use('/foods', require('./controllers/foods'));
+app.use('/foods', foodsController);
+app.use('/auth', authController);
+
+app.get('/', (req, res) => {
+  res.render('index.ejs', {
+    user: req.session.user,
+  });
+});
 
 
 

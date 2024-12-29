@@ -10,7 +10,7 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 // All routes start with '/foods'
 
 // GET /foods (index functionality) 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   res.send('Foods listed here.');
 });
 
@@ -20,8 +20,9 @@ router.get('/new', ensureSignedIn, (req, res) => {
 });
 
 // GET /foods/:foodId (show functionality)
-router.get('', () => {
-  
+router.get('/:foodId', async (req, res) => {
+  const food = await Food.findById(req.params.foodId);
+  res.render('foods/show.ejs', {title: 'All Foods'});
 });
 
 // POST /foods (create functionality)

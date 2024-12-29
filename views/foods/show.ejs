@@ -1,0 +1,12 @@
+<%- include('../partials/header.ejs') %>
+
+<h1><%= food.veganName %></h1>
+<p>Vegan Alternative:</p>
+<ul>
+    <%food.alternativeFor.forEach(food => { %>
+        <li><%= alternative %></li>
+    <% })%>
+</ul>
+
+
+<%- include('../partials/footer.ejs')%>
