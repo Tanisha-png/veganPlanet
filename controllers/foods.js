@@ -67,7 +67,17 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-
+// DELETE /foods/:id (delete functionality/action)
+router.delete('/:id', async (req, res) => {
+  console.log(req.params)
+  try {
+    const user = await User.findById(req.session.user._id);
+    user.foods.id(req.params.id).deleteOne();
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
 
 
 module.exports = router;
