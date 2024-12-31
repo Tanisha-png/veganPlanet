@@ -53,4 +53,21 @@ router.get('/:id/edit', async (req, res) => {
   }
 });
 
+// PUT /foods/:id (update functionality/action)
+router.put('/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user._id);
+    const foodItem = user.foods.id(req.params.id);
+    foodItem.set(req.body);
+    await user.save();
+    res.redirect('/foods')
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+
+
+
 module.exports = router;
