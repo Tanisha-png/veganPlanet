@@ -26,5 +26,31 @@ router.get('/:foodId', async (req, res) => {
 });
 
 // POST /foods (create functionality)
+router.post('/', async (req, res) => {
+  console.log(req.body);
+  try {
+    const user = await User.findById(req.session.user._id);
+    user.push(req.body);
+    await user.save();
+    res.redirect(`/foods`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
+// GET /foods/:id/edit (edit functionality/action)
+router.get('/:id/edit', async (req, res) => {
+  console.log('editing', req.params);
+  try {
+    const user = await User.findById(req.sessionID.user._id);
+    const foodItem = user.foods.id(req.params.id)
+    res.locals.food = foodItem;
+    res.render('foods/edit.ejs');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
 
 module.exports = router;
