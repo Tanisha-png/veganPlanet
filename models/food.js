@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const foodSchema = new Schema ({
+const foodSchema = new mongoose.Schema ({
     veganName: {
         type: String,
         required: true,
@@ -9,6 +9,11 @@ const foodSchema = new Schema ({
     alternativeFor: {
         type: String,
         required: true,
+    },
+    comments: [commentSchema],
+    favroitedBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
     },
 });
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // Shortcut variable
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
@@ -14,20 +14,5 @@ const userSchema = new Schema({
   },
 });
 
-const commentSchema = new Schema({
-  user: {
-    type: String,
-  },
-  text: {
-    type: String,
-  },
-  rating: {
-    type: String,
-  },
-  favoritedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  }
-});
 
 module.exports = mongoose.model("User", userSchema);
