@@ -1,0 +1,13 @@
+<%- include('../partials/_navbar.ejs') %>
+
+<h1>
+    <%= user.username %>'s Comments
+</h1>
+
+<ul>
+    <% user.comments.forEach(item=> { %>
+        <li>
+            <%= item.name %>
+        </li>
+    <%  }) %>
+</ul>
