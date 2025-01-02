@@ -10,11 +10,11 @@ const foodSchema = new mongoose.Schema ({
         type: String,
         required: true,
     },
-    comments: [commentSchema],
     favroitedBy: {
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
+    comments: [commentSchema],
 });
 
 module.exports = mongoose.model('Food', foodSchema);

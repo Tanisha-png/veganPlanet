@@ -16,8 +16,13 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const user = await User.findById
+        const user = await User.findById(req.params.id).poplulate('comments');
+        res.locals.comments = user.comments;
+        res.render('users/show.ejs');
     } catch (error) {
-
+        console.log(error);
+        res.redirect('/');
     }
-})
+});
+
+module.exports = router;
