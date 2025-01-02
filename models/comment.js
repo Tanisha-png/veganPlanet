@@ -4,12 +4,15 @@ const mongoose = mongoose.Schema;
 const commentSchema = new mongoose.Schema({
     user: {
         type: String,
+        required: true,
     },
     text: {
         type: String,
+        required: true,
     },
     rating: {
         type: String,
+        required: false,
     },
 });
 
