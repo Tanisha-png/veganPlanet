@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const authController = require('./controllers/auth.js');
 const foodsController = require('./controllers/foods.js');
-// const usersController = require('./controllers/users.js');
+const usersController = require('./controllers/users.js');
 
 const app = express();
 
@@ -67,7 +67,7 @@ app.use(require('./middleware/ensure-signed-in'));
 
 app.use('/foods', foodsController);
 app.use('/auth', authController);
-// app.use('/users', usersController);
+app.use('/users', usersController);
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
