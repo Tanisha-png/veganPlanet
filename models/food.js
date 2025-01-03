@@ -11,7 +11,7 @@ const foodSchema = new mongoose.Schema ({
         required: true,
     },
     favroitedBy: {
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: 'User',
     },
     comments: [commentSchema],
