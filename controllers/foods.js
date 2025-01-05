@@ -33,6 +33,7 @@ router.get('/new', ensureSignedIn, (req, res) => {
 
 // GET /foods/:foodId (show functionality)
 router.get('/:foodId', async (req, res) => {
+  console.log(food);
   const food = await Food.findById(req.params.foodId);
   res.render('foods/show.ejs', {title: 'All Foods'});
 });
@@ -42,7 +43,7 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   try {
     const user = await User.findById(req.session.user);
-    user.push(req.body);
+    user.food.push(req.body);
     await user.save();
     res.redirect(`/foods`);
   } catch (error) {
