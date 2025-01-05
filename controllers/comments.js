@@ -6,10 +6,10 @@ const Comment = require('../models/comment.js');
 
 router.get('/', async (req, res) => {
     try {
-        const comments = await Comment.find({}).populate('comments');
+        const comments = await Comment.find({});
         res.locals.comments = comments;
         console.log(comments);
-        res.render('recipes/index.ejs');
+        res.render('recipes/index.ejs', {comments});
     } catch (error) {
         console.log(error);
         res.redirect('/');
@@ -21,13 +21,23 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const comment = await Comment.findById(req.params.id);
-    res.render('comments/show.ejs', {comment});
+    try {
+        const comment = await Comment.findById(req.params.id);
+        res.render('comments/show.ejs', {comment});
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 });
 
 router.get('/:id/edit', async (req, res) => {
-    const comment = await Comment.findById(req.params.id);
-    res.render('comments/edit.ejs', {comment});
+    try {
+        const comment = await Comment.findById(req.params.id);
+        res.render('comments/edit.ejs', {comment});
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 });
 
 router.post('/', async (req, res) => {
@@ -35,6 +45,8 @@ router.post('/', async (req, res) => {
     try {
         const newComment = new Comment(req.body);
         newComment.user = req.session.user._id;
+        await newComment.save();
+        res.redirect('/comments');
     } catch (error) {
         console.log(error);
         res.redirect('/');
@@ -42,14 +54,20 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/', async (req, res) => {
-    await Comment.findByIdDelete(req.params.id);
-    res.redirect('/comments');
+    try {
+        await Comment.findByIdAndDelete(req.params.id);
+        res.redirect('/comments');
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
 });
 
 router.put('/:id', async (req, res) => {
     try {
-        const comment = await Comment.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/comments`)
+        const {text, rating} = req.body;
+        const comment = await Comment.findByIdAndUpdate(req.params.id, {text, rating});
+        res.redirect(`/comments/${req.params.id}`);
     } catch (error) {
         console.log(error);
         res.redirect('/');

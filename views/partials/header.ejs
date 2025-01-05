@@ -10,11 +10,11 @@
     <nav>
       <a href="/">🌳</a>
       <div>
-        <a href="/foods">ALL FOODS</a>
+        <a href="/foods">Favorite</a>
         <!-- Above renders whether signed in or not -->
         <% if (user) { %>
-        <a href="/foods/new">ADD FOOD</a>
-        <a href="/auth/sign-out">SIGN OUT</a>
+        <a href="/foods/new">Find Alternative</a>
+        <a href="/auth/sign-out">Sign Out</a>
         <span><%= user.username %></span>
         <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>

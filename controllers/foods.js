@@ -14,6 +14,18 @@ router.get('/', async (req, res) => {
   res.send('Foods listed here.');
 });
 
+router.get('/', async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user._id);
+    res.locals.veganFoods = user.veganName;
+    console.log(user.veganName);
+    res.render('foods/index.ejs');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
 // GET /foods/new (new functionality) 
 router.get('/new', ensureSignedIn, (req, res) => {
   res.render('foods/new.ejs', {title: 'Add Foods'});
@@ -29,7 +41,7 @@ router.get('/:foodId', async (req, res) => {
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {
-    const user = await User.findById(req.session.user._id);
+    const user = await User.findById(req.session.user);
     user.push(req.body);
     await user.save();
     res.redirect(`/foods`);
