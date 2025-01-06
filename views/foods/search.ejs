@@ -1,4 +1,9 @@
 <%- include('../partials/header.ejs') %>
+
+<form action="/foods/search" method="GET">
+    <input placeholder="Find vegan alternative" name="food">
+    <button type="submit">Search</button>
+</form>
     
     <% if (foods.length === 0) { %>
         <p>No favorite foods</p>
@@ -7,10 +12,7 @@
             <% foods.forEach(item=> { %>
                 <li>
                     <%= item.name %>
-                    <form action="/search" method="GET">
-                        <input placeholder="Enter food to find vegan alternative for.." name="food">
-                        <button type="submit">Search</button>
-                    </form>
+                    
                 </li>
             <% }) %>
         </ul>
