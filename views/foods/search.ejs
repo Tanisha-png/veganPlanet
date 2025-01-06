@@ -8,8 +8,9 @@
                 <li>
                     <%= item.name %>
                     <a href="/foods/<%= item._id %>/edit">Edit</a>
-                    <form action="/foods/<%= item._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
+                    <form action="/search" method="GET">
+                        <input placeholder="Enter food to find vegan alternative for.." name="food">
+                        <button type="submit">Search</button>
                     </form>
                 </li>
             <% }) %>
