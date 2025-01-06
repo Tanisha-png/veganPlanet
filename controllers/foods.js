@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const user = await User.findById(req.session.user._id);
+    const user = await Food.findById(req.session.user._id);
     res.locals.veganFoods = user.veganName;
     console.log(user.veganName);
     res.render('foods/index.ejs');
@@ -32,22 +32,19 @@ router.get('/new', ensureSignedIn, (req, res) => {
 
 // GET /foods/:foodId (show functionality)
 router.get('/:foodId', async (req, res) => {
-  console.log(food);
   const food = await Food.findById(req.params.foodId);
-  res.render('foods/show.ejs', {title: 'All Foods'});
+  res.render('foods/show.ejs', {title: 'All Foods'}, food);
 });
 
 // POST /foods (create functionality)
 router.post('/', async (req, res) => {
-  console.log(req.body);
   try {
-    const user = await User.findById(req.session.user);
-    user.foods.push(req.body);
-    await user.save();
-    res.redirect(`/foods`);
+    req.body.owner = req.user._id;
+    await Food.create(req.body);
+    res.redirect('/foods');
   } catch (error) {
     console.log(error);
-    res.redirect('/');
+    res.redirect('/foods/new');
   }
 });
 
