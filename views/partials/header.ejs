@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vegan Planet</title>
+    <title>VEGAN PLANET</title>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
     <nav>
       <a href="/">🌳</a>
       <div>
-        <a href="/foods">Favorite</a>
+        <a href="/foods">FAVORITE</a>
         <!-- Above renders whether signed in or not -->
         <% if (user) { %>
-        <a href="/foods/new">Find Alternative</a>
-        <a href="/auth/sign-out">Sign Out</a>
+        <a href="/foods/search">FIND ALTERNATIVE</a>
+        <a href="/auth/sign-out">SIGN OUT</a>
         <span><%= user.username %></span>
         <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>

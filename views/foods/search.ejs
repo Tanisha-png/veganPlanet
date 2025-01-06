@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegan Planet</title>
-</head>
-
-<%- include('../partials/_navbar.ejs') %>
-<body>
-    <h1>Welcome to Vegan Planet</h1>
+<%- include('../partials/header.ejs') %>
     
-    <% if (foodItems.length === 0) { %>
+    <% if (foods.length === 0) { %>
         <p>No favorite foods</p>
     <% } else { %>
         <ul>
-            <% foodItems.forEach(item=> { %>
+            <% foods.forEach(item=> { %>
                 <li>
                     <%= item.name %>
                     <a href="/foods/<%= item._id %>/edit">Edit</a>
@@ -27,5 +17,4 @@
     <% } %>
 
     <a href="/foods/new">Add to Favorites</a>
-</body>
-</html>
+    <%- include('../partials/footer.ejs') %>

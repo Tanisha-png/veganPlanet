@@ -8,17 +8,13 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 
 // All routes start with '/foods'
 
-// GET /foods (index functionality) 
-router.get('/', async (req, res) => {
-  res.send('Foods listed here.');
-});
+// GET /foods/search (search functionality) 
 
-router.get('/', async (req, res) => {
+router.get('/search', async (req, res) => {
   try {
-    const user = await Food.findById(req.session.user._id);
-    res.locals.veganFoods = user.veganName;
-    console.log(user.veganName);
-    res.render('foods/index.ejs');
+    console.log(req.query.food);
+    const foods = await Food.find({});
+    res.render('foods/search.ejs', {title: 'Search Vegan Alternatives', foods});
   } catch (error) {
     console.log(error);
     res.redirect('/');
