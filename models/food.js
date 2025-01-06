@@ -1,6 +1,22 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const commentSchema = new mongoose.Schema({
+    user: {
+        type: String,
+        required: true,
+    },
+    text: {
+        type: String,
+        required: true,
+    },
+    rating: {
+        type: Number,
+        required: false,
+    },
+});
+
+
 const foodSchema = new mongoose.Schema({
     veganName: {
         type: String,
@@ -14,7 +30,7 @@ const foodSchema = new mongoose.Schema({
         type: [Schema.Types.ObjectId],
         ref: 'User',
     },
-    // comments: [commentSchema],
+    comments: [commentSchema],
 });
 
 
