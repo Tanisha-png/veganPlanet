@@ -9,7 +9,6 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 // All routes start with '/foods'
 
 // GET /foods/search (search functionality) 
-
 router.get('/search', async (req, res) => {
   try {
     console.log(req.query.food);

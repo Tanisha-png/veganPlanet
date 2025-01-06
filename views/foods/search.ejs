@@ -7,7 +7,6 @@
             <% foods.forEach(item=> { %>
                 <li>
                     <%= item.name %>
-                    <a href="/foods/<%= item._id %>/edit">Edit</a>
                     <form action="/search" method="GET">
                         <input placeholder="Enter food to find vegan alternative for.." name="food">
                         <button type="submit">Search</button>
@@ -17,5 +16,5 @@
         </ul>
     <% } %>
 
-    <a href="/foods/new">Add to Favorites</a>
+    <!-- <a href="/foods/new">Add to Favorites</a> -->
     <%- include('../partials/footer.ejs') %>
