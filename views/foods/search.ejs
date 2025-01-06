@@ -9,9 +9,9 @@
         <p>No favorite foods</p>
     <% } else { %>
         <ul>
-            <% foods.forEach(item=> { %>
+            <% foods.forEach(food => { %>
                 <li>
-                    <%= item.name %>
+                    <%= food.veganName %>
                     
                 </li>
             <% }) %>

@@ -12,7 +12,8 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 router.get('/search', async (req, res) => {
   try {
     console.log(req.query.food);
-    const foods = await Food.find({});
+    const foods = await Food.find({alternativeFor: new RegExp(`.*${req.query.food}.*`, 'i')});
+    console.log(foods);
     res.render('foods/search.ejs', {title: 'Search Vegan Alternatives', foods});
   } catch (error) {
     console.log(error);
