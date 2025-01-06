@@ -2,14 +2,14 @@
 
 const express = require('express');
 const router = express.Router();
-const Comment = require('../models/comment.js');
+const Comment = require('../models/comment');
 
 router.get('/', async (req, res) => {
     try {
         const comments = await Comment.find({});
-        res.locals.comments = comments;
+        // res.locals.comments = comments;
         console.log(comments);
-        res.render('recipes/index.ejs', {comments});
+        res.render('comments/index.ejs', {comments});
     } catch (error) {
         console.log(error);
         res.redirect('/');
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         await Comment.findByIdAndDelete(req.params.id);
         res.redirect('/comments');

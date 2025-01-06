@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user.js');
+const Food = require('../models/food.js');
 
-const foods = ['vegan cheese', 'tofu'];
 
 // Middleware to protect selected routes
 const ensureSignedIn = require('../middleware/ensure-signed-in');
@@ -43,7 +42,7 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   try {
     const user = await User.findById(req.session.user);
-    user.food.push(req.body);
+    user.foods.push(req.body);
     await user.save();
     res.redirect(`/foods`);
   } catch (error) {

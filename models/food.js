@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const foodSchema = new mongoose.Schema ({
+const foodSchema = new mongoose.Schema({
     veganName: {
         type: String,
         required: true,
@@ -14,7 +14,8 @@ const foodSchema = new mongoose.Schema ({
         type: [Schema.Types.ObjectId],
         ref: 'User',
     },
-    comments: [commentSchema],
+    // comments: [commentSchema],
 });
 
-module.exports = mongoose.model('Food', foodSchema);
+
+module.exports = mongoose.model("Food", foodSchema);
