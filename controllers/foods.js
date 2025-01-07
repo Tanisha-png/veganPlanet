@@ -48,6 +48,7 @@ router.post('/', async (req, res) => {
 router.post('/:id/comments', async (req, res) => {
   try {
     const food = await Food.findById(req.params.id);
+    req.body.user = req.user._id;
     food.comments.push(req.body);
     await food.save();
     res.redirect(`/foods`);
