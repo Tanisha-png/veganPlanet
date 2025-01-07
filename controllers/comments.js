@@ -22,7 +22,7 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const comment = await Comment.findById(req.params.id);
+        const comment = await Comment.findById(req.params.foodId);
         res.render('comments/show.ejs', {comment});
     } catch (error) {
         console.log(error);

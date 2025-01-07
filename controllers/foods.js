@@ -44,6 +44,19 @@ router.post('/', async (req, res) => {
   }
 });
 
+// POST /foods/:id/comments 
+router.post('/:id/comments', async (req, res) => {
+  try {
+    const food = await Food.findById(req.params.id);
+    food.comments.push(req.body);
+    await food.save();
+    res.redirect(`/foods`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  }
+});
+
 // GET /foods/:id/edit (edit functionality/action)
 router.get('/:id/edit', async (req, res) => {
   console.log('editing', req.params);

@@ -5,7 +5,7 @@
 <img src="<%= food.foodImage %>" alt="">
 
 
-<form action="/foods/show" method="GET">
+<form action="/foods/<%= food._id %>/comments" method="POST">
     <input placeholder="Leave a Comment" name="food">
     <button type="submit">Comment</button>
 </form>
