@@ -11,7 +11,7 @@
         <ul>
             <% foods.forEach(food => { %>
                 <li>
-                    <%= food.veganName %>
+                    <a href="/foods/<%= food._id %>"><%= food.veganName %></a>
                     
                 </li>
             <% }) %>

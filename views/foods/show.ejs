@@ -1,12 +1,12 @@
+
 <%- include('../partials/header.ejs') %>
 
-<h1><%= food.veganName %></h1>
-<p>Vegan Alternative:</p>
-<ul>
-    <%food.alternativeFor.forEach(food => { %>
-        <li><%= alternative %></li>
-    <% })%>
-</ul>
-
-
+    <h1><%= food.veganName %></h1>
+    <p>Vegan Alternative For <%= food.alternativeFor %></p>
+    <img src="<%= food.foodImage %>" alt="">
+    
 <%- include('../partials/footer.ejs')%>
+
+
+
+

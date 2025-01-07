@@ -12,7 +12,7 @@ const foods = [
     {alternativeFor: 'cream cheese', alternatives: ['cashew cream cheese', 'soy-based cream cheese', 'almond-based cream cheese']},
     {alternativeFor: 'bacon', alternatives: ['tempeh bacon', 'smoked tofu']},
     {alternativeFor: 'whey protein', alternatives: ['pea protein', 'hemp protein', 'soy protein', 'rice protein',]},
-    {alternativeFor: 'beef', alternatives: ['beyond meat', 'impossible foods']},
+    {alternativeFor: 'beef', alternatives: ['beyond meat', 'impossible foods'], foodImage:'https://plus.unsplash.com/premium_photo-1664391762371-ed00e19ddc7a?q=80&w=1963&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
 ];
 
 require("dotenv").config();
@@ -32,7 +32,8 @@ async function seed () {
         for (let alternative of food.alternatives) {
             await Food.create({
                 veganName: alternative, 
-                alternativeFor: food.alternativeFor
+                alternativeFor: food.alternativeFor,
+                foodImage: food.foodImage,
             });
         }
     }

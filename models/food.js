@@ -22,11 +22,14 @@ const foodSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    foodImage: {
+        type: String,
+    },
     alternativeFor: {
         type: String,
         required: true,
     },
-    favroitedBy: {
+    favoritedBy: {
         type: [Schema.Types.ObjectId],
         ref: 'User',
     },

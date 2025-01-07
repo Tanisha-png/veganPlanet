@@ -1,14 +1,14 @@
-// controllers/comments.js
+controllers/comments.js
 
 const express = require('express');
 const router = express.Router();
-const Food = require('../models/food');
+const Comment = require('../models/comment');
 
-router.get('/:foodId', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const food = await Food.findById(req.params.foodId);
+        const comments = await Comment.find({});
         // res.locals.comments = comments;
-        console.log(food.comments);
+        console.log(comments);
         res.render('comments/index.ejs', {comments});
     } catch (error) {
         console.log(error);
