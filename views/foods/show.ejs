@@ -1,11 +1,18 @@
-
 <%- include('../partials/header.ejs') %>
 
-    <h1><%= food.veganName %></h1>
-    <p>Vegan Alternative For <%= food.alternativeFor %></p>
-    <img src="<%= food.foodImage %>" alt="">
-    
+<h1><%= food.veganName %></h1>
+<p>Vegan Alternative For <%= food.alternativeFor %></p>
+<img src="<%= food.foodImage %>" alt="">
+
+
+<form action="/foods/show" method="GET">
+    <input placeholder="Leave a Comment" name="food">
+    <button type="submit">Comment</button>
+</form>
+
 <%- include('../partials/footer.ejs')%>
+
+    
 
 
 
