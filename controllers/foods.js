@@ -76,8 +76,7 @@ router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
   try {
     const food = await Food.findById(req.params.foodId);
     console.log(food);
-    food.comments.id(req.params.commentId).deleteOne();
-    await food.save();
+    const comment = food.comments.id(req.params.commentId);
     res.render('foods/edit.ejs', {title: 'Vegan 🌎 Planet', food, comment});
   } catch (error) {
     console.log(error);
@@ -89,9 +88,11 @@ router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
-    const foodItem = user.foods.id(req.params.id);
-    foodItem.set(req.body);
-    await user.save();
+    // const foodItem = user.foods.id(req.params.id);
+    const comment = food.comments.id(req.params.commentId);
+    comment.set(req.body);
+    // await user.save();
+    await food.save();
     res.redirect('/foods')
   } catch (error) {
     console.log(error);

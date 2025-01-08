@@ -16,7 +16,7 @@
         <% food.comments.forEach(comment=> { %>
             <li>
                 <%= comment.text %>
-                <a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit"></a>
+                <a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a>
                 <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                     <button type="submit" id="delete-btn">Delete</button>
                 </form>
@@ -24,6 +24,8 @@
         <% }) %>
     </ul>
 <% } %>
+
+
 <%- include('../partials/footer.ejs')%>
 
     
