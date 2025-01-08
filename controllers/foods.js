@@ -84,16 +84,14 @@ router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
   }
 });
 
-// PUT /foods/:id (update functionality/action)
-router.put('/:id', async (req, res) => {
+// PUT /foods/:foodId/comments/:commentId (update functionality/action)
+router.put('/:foodId/comments/:commentId', async (req, res) => {
   try {
-    const user = await User.findById(req.session.user._id);
-    // const foodItem = user.foods.id(req.params.id);
+    const food = await Food.findById(req.params.foodId);
     const comment = food.comments.id(req.params.commentId);
     comment.set(req.body);
-    // await user.save();
     await food.save();
-    res.redirect('/foods')
+    res.redirect(`/foods/${req.params.foodId}`)
   } catch (error) {
     console.log(error);
     res.redirect('/');
