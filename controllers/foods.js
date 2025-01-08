@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   try {
     const foods = await Food.find({}).populate('comments');
     res.locals.foods = foods;
-    res.render('foods/index.ejs', );
+    res.render('foods/index.ejs', {foods: foods});
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -70,13 +70,16 @@ router.post('/:id/comments', async (req, res) => {
   }
 });
 
-// GET /foods/:id/edit (edit functionality/action)
-router.get('/:id/edit', async (req, res) => {
-  console.log('editing', req.params);
+// GET /foods/:foodId/comments/:commentId (edit functionality/action)
+router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
+  console.log(req.params);
   try {
-    const user = await User.findById(req.sessionID.user._id);
-    const foodItem = user.foods.id(req.params.id)
-    res.locals.food = foodItem;
+    const food = await Food.findById(req.params.foodId);
+    console.log(food);
+    // const foodItem = user.foods.id(req.params.id)
+    // res.locals.food = foodItem;
+    food.comments.id(req.params.commentId).deleteOne();
+    await food.save();
     res.render('foods/edit.ejs');
   } catch (error) {
     console.log(error);

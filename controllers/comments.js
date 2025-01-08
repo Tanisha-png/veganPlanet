@@ -30,15 +30,15 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/:id/edit', async (req, res) => {
-    try {
-        const comment = await Comment.findById(req.params.id);
-        res.render('comments/edit.ejs', {comment});
-    } catch (error) {
-        console.log(error);
-        res.redirect('/');
-    }
-});
+// router.get('/:id/edit', async (req, res) => {
+//     try {
+//         const comment = await Comment.findById(req.params.id);
+//         res.render('comments/edit.ejs', {comment});
+//     } catch (error) {
+//         console.log(error);
+//         res.redirect('/');
+//     }
+// });
 
 router.post('/', async (req, res) => {
     console.log(req.body);
