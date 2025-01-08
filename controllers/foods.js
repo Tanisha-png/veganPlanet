@@ -76,8 +76,6 @@ router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
   try {
     const food = await Food.findById(req.params.foodId);
     console.log(food);
-    // const foodItem = user.foods.id(req.params.id)
-    // res.locals.food = foodItem;
     food.comments.id(req.params.commentId).deleteOne();
     await food.save();
     res.render('foods/edit.ejs', {title: 'Vegan 🌎 Planet', food, comment});
