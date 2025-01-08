@@ -8,6 +8,18 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 
 // All routes start with '/foods'
 
+// GET /foods/index (index functionality)
+router.get('/', async (req, res) => {
+  try {
+    const foods = await Food.find({}).populate('comments');
+    res.locals.foods = foods;
+    res.render('foods/index.ejs', );
+  } catch (error) {
+    console.log(error);
+    res.redirect('/');
+  };
+});
+
 // GET /foods/search (search functionality) 
 router.get('/search', async (req, res) => {
   try {
@@ -28,7 +40,7 @@ router.get('/new', ensureSignedIn, (req, res) => {
 
 // GET /foods/:foodId (show functionality)
 router.get('/:foodId', async (req, res) => {
-  const food = await Food.findById(req.params.foodId);
+  const food = await Food.findById(req.params.foodId).populate('comments');
   res.render('foods/show.ejs', {title: 'Details For:', food});
 });
 
@@ -51,7 +63,7 @@ router.post('/:id/comments', async (req, res) => {
     req.body.user = req.user._id;
     food.comments.push(req.body);
     await food.save();
-    res.redirect(`/foods`);
+    res.redirect('/foods/search');
   } catch (error) {
     console.log(error);
     res.redirect('/');

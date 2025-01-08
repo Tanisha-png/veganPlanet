@@ -9,7 +9,17 @@
     <input placeholder="Leave a Comment" name="text">
     <button type="submit">Comment</button>
 </form>
-
+<% if (food.comments.length === 0) { %>
+    <p>No Comment</p>
+<% } else { %>
+    <ul>
+        <% food.comments.forEach(comment=> { %>
+            <li>
+                <%= comment.text %>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>
 <%- include('../partials/footer.ejs')%>
 
     
