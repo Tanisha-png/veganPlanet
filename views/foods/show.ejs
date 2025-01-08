@@ -19,7 +19,6 @@
                 <a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit"></a>
                 <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                     <button type="submit" id="delete-btn">Delete</button>
-                    <button type="submit" id="edit-btn">Edit</button>
                 </form>
             </li>
         <% }) %>

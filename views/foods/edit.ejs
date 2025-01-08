@@ -1,11 +1,9 @@
 <%- include('../partials/header.ejs') %>
 
-    <h1>Edit Comment</h1>
-
     <a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit"></a>
-    <form action="/foods/<%= food.id %>?_method=GET" method="POST">
+    <form action="/foods/<%= food.id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<% food.veganName %>" required>
+        <input placeholder="" type="text" id="name" name="name" value="<% food.veganName %>" required>
         <button type="submit">Update</button>
     </form>
 
