@@ -7,7 +7,7 @@
 
 <form action="/foods/<%= food._id %>/comments" method="POST">
     <input placeholder="Leave a Comment" name="text">
-    <button type="submit">Comment</button>
+    <button type="submit">Add Comment</button>
 </form>
 <% if (food.comments.length === 0) { %>
     <p>No Comment</p>

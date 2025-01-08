@@ -8,4 +8,11 @@
     <button type="submit">Save</button>
 </form>
 
+<form action="/foods/<%= food.id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<% food.veganName %>" required>
+    <button type="submit">Update</button>
+</form>
+
+
 <%- include('../partials/footer.ejs') %>

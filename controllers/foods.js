@@ -63,7 +63,7 @@ router.post('/:id/comments', async (req, res) => {
     req.body.user = req.user._id;
     food.comments.push(req.body);
     await food.save();
-    res.redirect('/foods/search');
+    res.redirect(`/foods/${req.params.id}`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
