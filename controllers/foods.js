@@ -98,12 +98,15 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE /foods/:id (delete functionality/action)
-router.delete('/:id', async (req, res) => {
+// DELETE /foods/:foodId/comments/:commentId (delete functionality/action)
+router.delete('/:foodId/comments/:commentId', async (req, res) => {
   console.log(req.params)
   try {
-    const user = await User.findById(req.session.user._id);
-    user.foods.id(req.params.id).deleteOne();
+    const food = await Food.findById(req.params.foodId);
+    console.log(food);
+    food.comments.id(req.params.commentId).deleteOne();
+    await food.save();
+    res.redirect(`/foods/${req.params.foodId}`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
