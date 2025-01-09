@@ -88,13 +88,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-
-  > * {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-  }
 }
 
 form {
@@ -124,15 +117,22 @@ button:hover {
   color: white;
 }
 
-.edit-button {
+.edit-button, .delete-btn {
   border-radius: 1vmin;
-}
+  padding: 1.5vmin;
+  background-color: lightblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vmin;
 
-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 3vmin;
-};
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
 
 #veg-food button{
   border-radius: 1vmin;
@@ -144,6 +144,7 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 5vmin;
   gap: 2vmin;
 }
 
@@ -162,10 +163,27 @@ img {
   color: yellow;
 }
 
-.comments {
+section.comments {
+  overflow-y: auto;
+  height: 50vh;
+}
+
+section.comments article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 18px;
+  width: 25vw;
   color: yellow;
-  list-style: none;
+  border: 0.5vmin solid lightblue;
+  border-radius: 1vmin;
+  padding: 2vmin;
+  margin: 0 1vmin 1vmin;
+  text-wrap: wrap;
+
+  form {
+    display: inline-block;
+  }
 }
 
 p {
@@ -177,5 +195,35 @@ label {
 }
 
 #food-img {
-  padding: 2vmin;
+  border-radius: 1vmin;
+  width: 40vmin;
+}
+
+.show-wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2vmin;
+  
+  form {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20vh 5vmin;
+    width: 25vw;
+    
+    #comment-btn {
+      grid-column: 1;
+    }
+  }
+}
+
+#delete-comment-form {
+  display: inline;
+}
+
+#home-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

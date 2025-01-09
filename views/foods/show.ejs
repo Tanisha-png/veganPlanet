@@ -3,32 +3,35 @@
 <div id="background">
 
 <p class="vegan-alt">Vegan Alternative For <%= food.alternativeFor %></p>
-<img src="<%= food.foodImage %>" alt="vegan-food" id="food-img">
-
-
-<form action="/foods/<%= food._id %>/comments" method="POST">
-    <label for="comment">Comment:</label>
-    <textarea id="comment" placeholder="Leave a Comment" name="text"></textarea>
-    <button type="submit">Add Comment</button>
-</form>
+<div class="show-wrapper">
+    
+    
+    <form action="/foods/<%= food._id %>/comments" method="POST">
+        <textarea id="comment" placeholder="Leave a Comment" name="text"></textarea>
+        <button type="submit" id="comment-btn">Add Comment</button>
+    </form>
+    <img src="<%= food.foodImage %>" alt="vegan-food" id="food-img">
 
 <% if (food.comments.length === 0) { %>
     <p>No Comments</p>
 <% } else { %>
     <section class="comments">
         <% food.comments.forEach(comment=> { %>
-            <li>
-                <%= comment.text %>
+            <article>
+                <p><%- comment.text.replaceAll('\n', '<br>') %></p>
                 <% if (user._id.toString() === comment.user.toString()) { %>
-                    <button class="edit-button"><a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a></button>
-                    <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                        <button type="submit" id="delete-btn">Delete</button>
-                    </form>
+                    <div>
+                        <button class="edit-button"><a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a></button>
+                        <form id="delete-comment-form" action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
                 <% } %>
-            </li>
+            </article>
         <% }) %>
     </section> 
     <% } %>
+</div>
 </div>
     
         <%- include('../partials/footer.ejs')%>
