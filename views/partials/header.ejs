@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+
     <style>
       ul {
         list-style-type: none;
@@ -19,7 +19,7 @@
       <div class="nav-bar">
         <!-- Above renders whether signed in or not -->
         <% if (user) { %>
-          <a href="/foods">FAVORITE</a>
+          <!-- <a href="/foods">FAVORITE</a> -->
         <a href="/foods/search">FIND ALTERNATIVE</a>
         <a href="/auth/sign-out">SIGN OUT</a>
         <span><%= user.username %></span>
@@ -33,3 +33,4 @@
       <section class="background"></section>
       <section class="overlay">
   <h1><%= title %></h1>
+  

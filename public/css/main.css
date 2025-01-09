@@ -16,7 +16,7 @@ body {
 }
 
 .background {
-  opacity: .8;
+  opacity: .9;
   background-image: url("https://hips.hearstapps.com/hmg-prod/images/gettyimages-1442849073-648c673408c0f.jpg?crop=0.5625xw:1xh;center,top&resize=640:*");
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,6 +39,8 @@ body {
 
   h1 {
     background: transparent;
+    color: white;
+    font-size: 60px;
   }
 }
 
