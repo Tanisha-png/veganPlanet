@@ -43,6 +43,16 @@ body {
   }
 }
 
+#background {
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 nav,
 footer {
   background-color: rgb(6, 131, 6);
@@ -131,4 +141,8 @@ img {
 ul, li {
   list-style: none;
   list-style-type: none;
+}
+
+#veg-food {
+  border-radius: 1vmin;
 }

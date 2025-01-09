@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
+<div id="background">
 
-<h1><%= food.veganName %></h1>
 <p class="vegan-alt">Vegan Alternative For <%= food.alternativeFor %></p>
 <img src="<%= food.foodImage %>" alt="vegan-food">
 
@@ -16,17 +16,21 @@
         <% food.comments.forEach(comment=> { %>
             <li>
                 <%= comment.text %>
-                <button class="edit-button"><a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a></button>
-                <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                    <button type="submit" id="delete-btn">Delete</button>
-                </form>
+                <% if (user._id.toString() === comment.user.toString()) { %>
+                    <button class="edit-button"><a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a></button>
+                    <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                        <button type="submit" id="delete-btn">Delete</button>
+                    </form>
+                <% } %>
             </li>
         <% }) %>
     </ul>
 <% } %>
+    
+    </div>
+    <%- include('../partials/footer.ejs')%>
 
-
-<%- include('../partials/footer.ejs')%>
+                
 
     
 

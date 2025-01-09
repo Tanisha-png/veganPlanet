@@ -41,7 +41,8 @@ router.get('/new', ensureSignedIn, (req, res) => {
 // GET /foods/:foodId (show functionality)
 router.get('/:foodId', async (req, res) => {
   const food = await Food.findById(req.params.foodId).populate('comments');
-  res.render('foods/show.ejs', {title: 'Details For:', food});
+  console.log(food);
+  res.render('foods/show.ejs', {title: `Details For: ${food.veganName}`, food});
 });
 
 // POST /foods (create functionality)

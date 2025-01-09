@@ -1,4 +1,11 @@
 <%- include('./partials/header.ejs') %>
-<!-- Home Page's Content -->
-<%- include('./partials/footer.ejs') %>
 
+    <% if (user) { %>
+        <!-- <a href="/foods">FAVORITE</a> -->
+        <a href="/foods/search">FIND ALTERNATIVE</a>
+        <% } else { %>
+            <a href="/auth/sign-up">SIGN UP</a>
+            <a href="/auth/sign-in">SIGN IN</a>
+            <% } %>
+
+                <%- include('./partials/footer.ejs') %>
