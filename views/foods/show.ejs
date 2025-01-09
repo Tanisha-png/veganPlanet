@@ -1,4 +1,5 @@
 <%- include('../partials/header.ejs') %>
+
 <div id="background">
 
 <p class="vegan-alt">Vegan Alternative For <%= food.alternativeFor %></p>
@@ -6,14 +7,15 @@
 
 
 <form action="/foods/<%= food._id %>/comments" method="POST">
-    <input placeholder="Leave a Comment" name="text">
+    <label for="comment">Comment:</label>
+    <textarea id="comment" placeholder="Leave a Comment" name="text"></textarea>
     <button type="submit">Add Comment</button>
 </form>
+
 <% if (food.comments.length === 0) { %>
     <p>No Comments</p>
 <% } else { %>
     <section class="comments">
-    <!-- <ul> -->
         <% food.comments.forEach(comment=> { %>
             <li>
                 <%= comment.text %>
@@ -26,12 +28,12 @@
             </li>
         <% }) %>
     </section> 
-    <!-- </ul> -->
-<% } %>
-
+    <% } %>
 </div>
     
-<%- include('../partials/footer.ejs')%>
+        <%- include('../partials/footer.ejs')%>
+    
+    
 
                 
 
