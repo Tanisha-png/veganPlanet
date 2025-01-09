@@ -129,9 +129,9 @@ button:hover {
 }
 
 img {
-  width: 200px;
-  height: 200px;
-  border-radius: 1vmin;
+  width: 250px;
+  height: 250px;
+  border-radius: 3vmin;
 };
 
 #veg-food button{
@@ -174,4 +174,8 @@ p {
 
 label {
   color: yellow;
+}
+
+#food-img {
+  padding: 2vmin;
 }
