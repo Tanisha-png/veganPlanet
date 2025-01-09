@@ -139,8 +139,30 @@ ul, li {
   list-style-type: none;
 }
 
-#veg-food {
+#veg-food button{
   border-radius: 1vmin;
-  font-size: 20px;
+  font-size: 18px;
   padding: 1vmin;
+}
+
+#veg-food {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vmin;
+}
+
+#veg-food article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vmin;
+  border: 0.5vmin solid grey;
+  border-radius: 0.5vmin;
+  border-style: groove;
+}
+
+.vegan-alt {
+  font-size: 25px;
+  color: yellow;
 }

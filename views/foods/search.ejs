@@ -9,13 +9,14 @@
     <% if (foods.length === 0) { %>
         <!-- <p>No favorite foods</p> -->
     <% } else { %>
-        <ul>
+        <section id="veg-food">
             <% foods.forEach(food => { %>
-                <li>
-                    <button id="veg-food"><a href="/foods/<%= food._id %>"><%= food.veganName %></a></button>
-                </li>
-            <% }) %>
-        </ul>
-    <% } %>
-
+                <article>
+                    <button><a href="/foods/<%= food._id %>"><%= food.veganName %></a></button>
+                </article>
+                <% }) %>
+        </section>
+        <% } %>
+                
 <%- include('../partials/footer.ejs') %>
+                
