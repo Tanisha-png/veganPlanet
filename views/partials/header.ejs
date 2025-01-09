@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
+    <style>
+      ul {
+        list-style-type: none;
+      }
+    </style>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VEGAN PLANET</title>
@@ -9,7 +16,7 @@
   <body>
     <nav>
       <a href="/">HOME 🌳</a>
-      <div>
+      <div class="nav-bar">
         <!-- Above renders whether signed in or not -->
         <% if (user) { %>
           <a href="/foods">FAVORITE</a>
@@ -23,5 +30,6 @@
       </div>
     </nav>
     <main>
-  
+      <section class="background"></section>
+      <section class="overlay">
   <h1><%= title %></h1>

@@ -1,15 +1,19 @@
 <%- include('./partials/header.ejs') %>
-<body>
-    <% if (user) { %>
-        <h1>Welcome to VeganPlanet, <%= user.username %>🍎</h1>
-    <% } else { %>
-        <h1>Welcome Guest</h1>
-        <p>
-            <a href="/auth/sign-up">Sign up</a> or 
-            <a href="/auth/sign-in">Sign in</a>
-        </p>
-    <% } %>
-
+<!-- <body> -->
+    <section class="background"></section>
+    <section class="overlay">
+        <% if (user) { %>
+            <h1>Welcome to VeganPlanet, <%= user.username %>🍎</h1>
+        <% } else { %>
+            <h1>Welcome Guest</h1>
+            <p>
+                <a href="/auth/sign-up">Sign up</a> or 
+                <a href="/auth/sign-in">Sign in</a>
+            </p>
+        <% } %>
+    </section>
+    
+<!-- </body> -->
 <%- include('./partials/footer.ejs') %>
 
 

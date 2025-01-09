@@ -1,5 +1,5 @@
 * {
-  background-color: skyblue;
+  /* background-color: skyblue; */
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,6 +9,37 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.nav-bar, .nav-bar > span {
+  background-color: rgb(6, 131, 6);
+}
+
+.background {
+  opacity: .8;
+  background-image: url("https://hips.hearstapps.com/hmg-prod/images/gettyimages-1442849073-648c673408c0f.jpg?crop=0.5625xw:1xh;center,top&resize=640:*");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+
+  h1 {
+    background: transparent;
+  }
 }
 
 nav,
@@ -43,9 +74,21 @@ nav span {
 
 main {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vmin;
+  justify-content: center;
+  /* margin-top: 5vmin; */
+
+
+  > * {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* background: transparent; */
+    /* height: 100%;
+    width: 100%; */
+  }
 }
 
 form {
@@ -80,3 +123,8 @@ img {
   height: 200px;
   border-radius: 1vmin;
 };
+
+ul, li {
+  list-style: none;
+  list-style-type: none;
+}
