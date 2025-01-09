@@ -16,7 +16,7 @@
         <% food.comments.forEach(comment=> { %>
             <li>
                 <%= comment.text %>
-                <a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                <button class="edit-button"><a href="/foods/<%= food._id %>/comments/<%= comment._id %>/edit">Edit</a></button>
                 <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                     <button type="submit" id="delete-btn">Delete</button>
                 </form>
