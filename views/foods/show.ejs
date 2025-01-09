@@ -12,7 +12,8 @@
 <% if (food.comments.length === 0) { %>
     <p>No Comments</p>
 <% } else { %>
-    <ul>
+    <section class="comments">
+    <!-- <ul> -->
         <% food.comments.forEach(comment=> { %>
             <li>
                 <%= comment.text %>
@@ -24,7 +25,8 @@
                 <% } %>
             </li>
         <% }) %>
-    </ul>
+    </section> 
+    <!-- </ul> -->
 <% } %>
 
 </div>

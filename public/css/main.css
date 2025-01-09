@@ -134,10 +134,10 @@ img {
   border-radius: 1vmin;
 };
 
-ul, li {
+/* ul, li {
   list-style: none;
   list-style-type: none;
-}
+} */
 
 #veg-food button{
   border-radius: 1vmin;
@@ -165,4 +165,10 @@ ul, li {
 .vegan-alt {
   font-size: 25px;
   color: yellow;
+}
+
+.comments {
+  font-size: 18px;
+  color: yellow;
+  list-style: none;
 }
