@@ -41,7 +41,6 @@ router.get('/new', ensureSignedIn, (req, res) => {
 // GET /foods/:foodId (show functionality)
 router.get('/:foodId', async (req, res) => {
   const food = await Food.findById(req.params.foodId).populate('comments');
-  console.log(food);
   res.render('foods/show.ejs', {title: `Details For: ${food.veganName}`, food});
 });
 
@@ -73,7 +72,6 @@ router.post('/:id/comments', async (req, res) => {
 
 // GET /foods/:foodId/comments/:commentId (edit functionality/action)
 router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
-  console.log(req.params);
   try {
     const food = await Food.findById(req.params.foodId);
     console.log(food);
@@ -101,7 +99,6 @@ router.put('/:foodId/comments/:commentId', async (req, res) => {
 
 // DELETE /foods/:foodId/comments/:commentId (delete functionality/action)
 router.delete('/:foodId/comments/:commentId', async (req, res) => {
-  console.log(req.params)
   try {
     const food = await Food.findById(req.params.foodId);
     console.log(food);

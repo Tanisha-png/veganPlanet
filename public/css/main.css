@@ -39,7 +39,7 @@ body {
   h1 {
     background: transparent;
     color: white;
-    font-size: 60px;
+    font-size: 50px;
   }
 }
 
@@ -88,16 +88,12 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin-top: 5vmin; */
 
 
   > * {
     position: absolute;
     top: 0;
     bottom: 0;
-    /* background: transparent; */
-    /* height: 100%;
-    width: 100%; */
   }
 }
 
@@ -145,4 +141,6 @@ ul, li {
 
 #veg-food {
   border-radius: 1vmin;
+  font-size: 20px;
+  padding: 1vmin;
 }
