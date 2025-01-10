@@ -23,6 +23,7 @@ Welcome to Vegan Planet, an app designed to provide users with easy access to ve
 - CSS
 - JavaScript
 - Node.js
+- Mongoose
 
 # Getting Started 
 
