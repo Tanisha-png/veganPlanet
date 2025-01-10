@@ -2,7 +2,7 @@
 
     <form action="/foods/<%= food._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
         <label for="text">Comment:</label>
-        <input placeholder="" type="text" id="text" name="text" value="<%= comment.text %>" required>
+        <textarea placeholder="" type="text" id="text" name="text" value="<%= comment.text %>" required></textarea>
         <button type="submit">Update</button>
     </form>
 
