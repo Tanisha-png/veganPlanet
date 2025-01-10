@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     res.locals.foods = foods;
     res.render('foods/index.ejs', {foods: foods});
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   };
 });
@@ -25,10 +25,9 @@ router.get('/search', async (req, res) => {
   try {
     console.log(req.query.food);
     const foods = await Food.find({alternativeFor: new RegExp(`.*${req.query.food}.*`, 'i')});
-    console.log(foods);
     res.render('foods/search.ejs', {title: 'Search Vegan Alternatives', foods});
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   }
 });
@@ -51,7 +50,7 @@ router.post('/', async (req, res) => {
     await Food.create(req.body);
     res.redirect('/foods');
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/foods/new');
   }
 });
@@ -65,7 +64,7 @@ router.post('/:id/comments', async (req, res) => {
     await food.save();
     res.redirect(`/foods/${req.params.id}`);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   }
 });
@@ -74,11 +73,10 @@ router.post('/:id/comments', async (req, res) => {
 router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
   try {
     const food = await Food.findById(req.params.foodId);
-    console.log(food);
     const comment = food.comments.id(req.params.commentId);
     res.render('foods/edit.ejs', {title: 'Vegan 🌎 Planet', food, comment});
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   }
 });
@@ -92,7 +90,7 @@ router.put('/:foodId/comments/:commentId', async (req, res) => {
     await food.save();
     res.redirect(`/foods/${req.params.foodId}`)
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   }
 });
@@ -101,12 +99,11 @@ router.put('/:foodId/comments/:commentId', async (req, res) => {
 router.delete('/:foodId/comments/:commentId', async (req, res) => {
   try {
     const food = await Food.findById(req.params.foodId);
-    console.log(food);
     food.comments.id(req.params.commentId).deleteOne();
     await food.save();
     res.redirect(`/foods/${req.params.foodId}`);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.redirect('/');
   }
 });

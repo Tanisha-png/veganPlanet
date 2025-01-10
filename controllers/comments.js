@@ -7,11 +7,10 @@ const Food = require('../models/food');
 router.get('/:foodId', async (req, res) => {
     try {
         const food = await Food.findById(req.params.foodId);
-        // res.locals.comments = comments;
-        console.log(food.comments);
+        // console.log(food.comments);
         res.render('comments/index.ejs', {comments});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });
@@ -25,7 +24,7 @@ router.get('/:id', async (req, res) => {
         const comment = await Comment.findById(req.params.foodId);
         res.render('comments/show.ejs', {comment});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });
@@ -35,7 +34,7 @@ router.get('/:id/edit', async (req, res) => {
         const comment = await Comment.findById(req.params.id);
         res.render('comments/edit.ejs', {comment});
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });
@@ -48,7 +47,7 @@ router.post('/', async (req, res) => {
         await newComment.save();
         res.redirect('/comments');
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });
@@ -58,7 +57,7 @@ router.delete('/:id', async (req, res) => {
         await Comment.findByIdAndDelete(req.params.id);
         res.redirect('/comments');
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });
@@ -69,7 +68,7 @@ router.put('/:id', async (req, res) => {
         const comment = await Comment.findByIdAndUpdate(req.params.id, {text, rating});
         res.redirect(`/comments/${req.params.id}`);
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.redirect('/');
     }
 });

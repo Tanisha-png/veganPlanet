@@ -27,7 +27,7 @@ router.post('/sign-up', async (req, res) => {
     // Update path to the functionality YOU want
     res.redirect('/');
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     res.render('auth/sign-up.ejs', { title: 'Sign Up!' });
   }
 });
@@ -49,7 +49,7 @@ router.post('/sign-in', async (req, res) => {
     // Update path to the functionality YOU want
     res.redirect('/');
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     res.render('auth/sign-in.ejs', { title: 'Sign In' });
   }
 });
