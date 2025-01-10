@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
         res.locals.user = users;
         res.render('users/index.ejs', {users});
     } catch (error) {
-        // console.log(error);
         res.redirect('/');
     };
 });
@@ -20,7 +19,6 @@ router.get('/:id', async (req, res) => {
         res.locals.comments = user.comments;
         res.render('users/show.ejs');
     } catch (error) {
-        // console.log(error);
         res.redirect('/');
     }
 });

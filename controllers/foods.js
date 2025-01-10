@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
     res.locals.foods = foods;
     res.render('foods/index.ejs', {foods: foods});
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   };
 });
@@ -27,7 +26,6 @@ router.get('/search', async (req, res) => {
     const foods = await Food.find({alternativeFor: new RegExp(`.*${req.query.food}.*`, 'i')});
     res.render('foods/search.ejs', {title: 'Search Vegan Alternatives', foods});
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   }
 });
@@ -50,7 +48,6 @@ router.post('/', async (req, res) => {
     await Food.create(req.body);
     res.redirect('/foods');
   } catch (error) {
-    // console.log(error);
     res.redirect('/foods/new');
   }
 });
@@ -64,7 +61,6 @@ router.post('/:id/comments', async (req, res) => {
     await food.save();
     res.redirect(`/foods/${req.params.id}`);
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   }
 });
@@ -76,7 +72,6 @@ router.get('/:foodId/comments/:commentId/edit', async (req, res) => {
     const comment = food.comments.id(req.params.commentId);
     res.render('foods/edit.ejs', {title: 'Vegan 🌎 Planet', food, comment});
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   }
 });
@@ -90,7 +85,6 @@ router.put('/:foodId/comments/:commentId', async (req, res) => {
     await food.save();
     res.redirect(`/foods/${req.params.foodId}`)
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   }
 });
@@ -103,7 +97,6 @@ router.delete('/:foodId/comments/:commentId', async (req, res) => {
     await food.save();
     res.redirect(`/foods/${req.params.foodId}`);
   } catch (error) {
-    // console.log(error);
     res.redirect('/');
   }
 });

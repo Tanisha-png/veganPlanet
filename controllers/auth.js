@@ -49,7 +49,6 @@ router.post('/sign-in', async (req, res) => {
     // Update path to the functionality YOU want
     res.redirect('/');
   } catch (e) {
-    // console.log(e);
     res.render('auth/sign-in.ejs', { title: 'Sign In' });
   }
 });
