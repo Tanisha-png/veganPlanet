@@ -207,6 +207,11 @@ label {
   width: 30vmin;
 }
 
+.default-img {
+  border-radius: 1vmin;
+  width: 30vmin;
+}
+
 .show-wrapper {
   display: grid;
   grid-template-columns: auto auto auto;

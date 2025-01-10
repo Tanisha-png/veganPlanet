@@ -9,7 +9,7 @@
         <textarea id="comment" placeholder="Leave a Comment" name="text"></textarea>
         <button type="submit" id="comment-btn">Add Comment</button>
     </form>
-    <img src="<%= food.foodImage ? food.foodImage : '/imgs/default-food.jpeg' %>"
+    <img class="default-img" src="<%= food.foodImage ? food.foodImage : '/imgs/default-food.jpeg' %>"
     
     <% if (food.comments.length === 0) { %>
         <p>No Comments</p>
